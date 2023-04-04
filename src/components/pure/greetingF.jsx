@@ -11,10 +11,10 @@ const GreetingF = (props) => {
  
     return (
     <div>
-      <h1>Hello {props.name} desde componente funcional!</h1>
+      <h1>Hello {props.name} from functional Component!</h1>
       <h2>Age: {age}</h2>
       <div>
-        <button onClick={birthday}> Cumplir años</button>
+        <button onClick={birthday}> Turn years</button>
       </div>
       
     </div>

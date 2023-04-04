@@ -15,7 +15,7 @@ class Gretting extends Component {
         <h1>Hello {this.props.name}!</h1>
         <h2>Age: {this.state.age}</h2>
         <div>
-          <button onClick={this.birthday}> Cumplir años</button>
+          <button onClick={this.birthday}> Turn years</button>
         </div>
       </div>
     );
