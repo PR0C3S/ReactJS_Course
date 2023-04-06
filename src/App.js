@@ -8,6 +8,8 @@ import Ejemplo2 from './hooks/ejemplo2';
 import MiComponenteConContexto from './hooks/ejemplo3';
 import Ejemplo4 from './hooks/ejemplo4';
 import GreetingStyled from './components/pure/greetingStyled';
+import Clock from './components/pure/clock';
+import ClockHook from './hooks/clockHook';
 
 function App() {
   return (
@@ -35,8 +37,12 @@ function App() {
         </Ejemplo4>
        
        <TaskListComponent></TaskListComponent>
-       */}
+       
        <GreetingStyled name='John'></GreetingStyled>
+       
+       <Clock></Clock>
+       */}
+       <ClockHook></ClockHook>
       
       </header>
 
