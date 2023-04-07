@@ -41,9 +41,41 @@ const TaskListComponent = () => {
     };
   }, [tasks]);
 
-  const changeCompleted = (id) => {
-    console.log("TODO: Cambiar estado de una tarea");
-  };
+  function completeTask(task){
+
+    //obtenemos el indice
+    const index = tasks.indexOf(task);
+   
+    // ?Buena practicas 
+    //Copiar todas las tareas
+    const tempTask = [...tasks];
+    //Modificar la tarea ahora
+    tempTask[index].isCompleted = !tempTask[index].isCompleted;
+    //volvemos a cargar los datos
+    setTasks(tempTask);
+  }
+
+  function deleteTask(task){
+    //obtenemos el indice
+    const index = tasks.indexOf(task);
+    // ?Buena practicas 
+    //Copiar todas las tareas
+    const tempTask = [...tasks];
+    //borramos el elemento
+    // splice se situa en el indice y borra los elemento que le pasemos como segundo parametro
+    tempTask.splice(index,1);
+    setTasks(tempTask);
+  }
+
+  function addTask(task){
+   //Copiar todas las tareas
+    const tempTask = [...tasks];
+    //agregamos el elemento
+    tempTask.push(task);
+    //actualizamos
+    setTasks(tempTask);
+  }
+
   return (
     <div>
       <div className="col-12">
@@ -70,12 +102,12 @@ const TaskListComponent = () => {
                     
                 {/* TODO: Iterar sobre una lista de tareas */}
                 {tasks.map( (actTask,index) =>{
-                    return(<TaskComponent key={index} task={actTask}></TaskComponent>)
+                    return(<TaskComponent key={index} task={actTask} complete={completeTask} remove={deleteTask}></TaskComponent>)
                 })}
             </tbody>
           </table>
         </div>
-        <TaskForm></TaskForm>
+        <TaskForm add={addTask}></TaskForm>
       </div>
     </div>
   );

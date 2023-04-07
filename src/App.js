@@ -40,10 +40,11 @@ function App() {
       
       </header>
        
-      
-      <TaskListComponent></TaskListComponent>
+       <Father></Father>
       */}
-      <Father></Father>
+      <TaskListComponent></TaskListComponent>
+
+     
 
 
     </div>
