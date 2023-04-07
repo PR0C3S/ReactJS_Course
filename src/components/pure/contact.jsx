@@ -3,20 +3,34 @@ import PropTypes from 'prop-types';
 import { Contact } from '../../models/contact.class';
 
 
-const ContactComponent = ({contact}) => {
+const ContactComponent = ({contact, changeStatus, removeContact}) => {
+
+    function iconIsConnect(){
+
+        if(contact.isConnect)
+        {
+            return (<i className='bi bi-toggle-on' style={ {color: 'green'}} onClick={() => changeStatus(contact)}></i>)
+        }else{
+            return (<i className='bi bi-toggle-off' style={ {color: 'gray'}} onClick={() => changeStatus(contact)}></i>)
+        }
+
+    }
     return (
-        <div>
-            <h2>Nombre: { contact.nombre }</h2>
-            <h2>Apellido: { contact.apellido }</h2>
-            <h2>Email: { contact.email }</h2>
-            <h3>Estado: { contact.isConectado ? 'Contacto En Linea' : 'Contacto No Disponible'  }</h3>
-        </div>
+        <tr>
+            <td>{ contact.firstName }</td>
+            <td>{ contact.lastName }</td>
+            <td>{ contact.email }</td>
+            <td>{ iconIsConnect() }</td>
+            <td><i className='bi bi-trash' style={ {color: 'red'}} onClick={() => removeContact(contact)}></i></td>
+        </tr>
     );
 };
 
 
 ContactComponent.propTypes = {
-    contact: PropTypes.instanceOf(Contact)
+    contact: PropTypes.instanceOf(Contact).isRequired,
+    changeStatus: PropTypes.func.isRequired,
+    removeContact: PropTypes.func.isRequired
 };
 
 
