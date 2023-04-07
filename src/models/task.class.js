@@ -4,13 +4,13 @@ export class Task
 {
     name = '';
     description = '';
-    completed = false;
+    isCompleted = false;
     level = LEVELS.NORMAL;
 
-    constructor(name,description,completed,level){
+    constructor(name,description,isCompleted,level){
         this.name = name;
         this.description = description;
-        this.completed = completed;
+        this.isCompleted = isCompleted;
         this.level = level;
     }
 }

@@ -12,9 +12,10 @@ import GreetingStyled from './components/pure/greetingStyled';
 function App() {
   return (
     <div className="App">
+    {/*
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {/* Componente propio Greeting.jsx
+         Componente propio Greeting.jsx
         <Gretting name="John Pena"></Gretting>
         
         <GreetingF name="Harold Pena"></GreetingF>
@@ -34,11 +35,12 @@ function App() {
           </h3>
         </Ejemplo4>
        
-       <TaskListComponent></TaskListComponent>
-       */}
        <GreetingStyled name='John'></GreetingStyled>
       
       </header>
+       */}
+      
+      <TaskListComponent></TaskListComponent>
 
 
     </div>
