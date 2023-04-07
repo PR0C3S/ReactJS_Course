@@ -57,7 +57,7 @@ const TaskListComponent = () => {
           data-mdb-perfect-scrollbar="true"
           style={{ position: "relative", height: "400px" }}
         >
-          <table className="table table-hover">
+          <table className="table table-striped table-hover">
             <thead>
               <tr>
                 <th scope="col">Title</th>
