@@ -9,7 +9,8 @@ import MiComponenteConContexto from './hooks/ejemplo3';
 import Ejemplo4 from './hooks/ejemplo4';
 import GreetingStyled from './components/pure/greetingStyled';
 import Father from './components/container/father';
-
+import OptionalRender from './components/pure/optionalRender.jsx'
+ 
 function App() {
   return (
     <div className="App">
@@ -41,8 +42,11 @@ function App() {
       </header>
        
        <Father></Father>
-      */}
       <TaskListComponent></TaskListComponent>
+
+      */}
+
+      <OptionalRender></OptionalRender>
 
      
 
