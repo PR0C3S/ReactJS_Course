@@ -10,6 +10,8 @@ import Ejemplo4 from './hooks/ejemplo4';
 import GreetingStyled from './components/pure/greetingStyled';
 import Father from './components/container/father';
 import OptionalRender from './components/pure/optionalRender.jsx'
+import { Formik } from 'formik';
+import LoginFormik from './components/pure/forms/loginFormik';
  
 function App() {
   return (
@@ -42,13 +44,13 @@ function App() {
       </header>
        
        <Father></Father>
+      <OptionalRender></OptionalRender>
       <TaskListComponent></TaskListComponent>
 
+
       */}
-
-      <OptionalRender></OptionalRender>
-
-     
+      <LoginFormik></LoginFormik>
+      
 
 
     </div>

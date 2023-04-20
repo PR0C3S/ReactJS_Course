@@ -34,9 +34,10 @@ const TaskListComponent = () => {
   // Control del ciclo de vida del componente
   useEffect(() => {
     console.log("Task State has been modified");
-    setLoading(false);
     return () => {
-      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
       console.log("TaskListComponent is going to unmount...");
     };
   }, [tasks]);
@@ -76,20 +77,9 @@ const TaskListComponent = () => {
     setTasks(tempTask);
   }
 
-  return (
-    <div>
-      <div className="col-12">
-        <div className="card text-bg-primary">
-          <div className="card-header p-3">
-            <h5>Your Tasks:</h5>
-          </div>
-        </div>
-        <div
-          className="card-body"
-          data-mdb-perfect-scrollbar="true"
-          style={{ position: "relative", height: "400px" }}
-        >
-          <table className="table table-striped table-hover">
+  function taskTable(){
+    return(
+      <table className="table table-hover">
             <thead>
               <tr>
                 <th scope="col">Title</th>
@@ -106,8 +96,44 @@ const TaskListComponent = () => {
                 })}
             </tbody>
           </table>
+    )
+  }
+
+  let table;
+
+  if(tasks.length >0){
+    table = taskTable()
+  }else{
+    table = (<div><h4>There are no tasks to show</h4>
+    <h5>Please, create one</h5>
+    </div>)
+  }
+
+  const loadigSpinner = (
+  <div className="spinner-border text-primary text-center mt3" role="status">
+  <span className="visually-hidden">Loading...</span>
+</div>
+)
+
+  return (
+    <div>
+      <div className="col-12">
+        <div className="card text-bg-primary">
+          <div className="card-header p-3">
+            <h5>Your Tasks:</h5>
+          </div>
         </div>
-        <TaskForm add={addTask}></TaskForm>
+        <div
+          className="card-body"
+          data-mdb-perfect-scrollbar="true"
+          style={{ position: "relative", height: "400px" }}
+        >
+
+        {loading ? loadigSpinner : table}
+        
+          
+        </div>
+        <TaskForm add={addTask} lenght={tasks.length}></TaskForm>
       </div>
     </div>
   );
