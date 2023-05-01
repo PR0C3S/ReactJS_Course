@@ -1,17 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import Gretting from './components/pure/gretting';
-import GreetingF from './components/pure/greetingF';
-import TaskListComponent from './components/container/task_list';
-import Ejemplo1 from './hooks/ejemplo1';
-import Ejemplo2 from './hooks/ejemplo2';
-import MiComponenteConContexto from './hooks/ejemplo3';
-import Ejemplo4 from './hooks/ejemplo4';
-import GreetingStyled from './components/pure/greetingStyled';
-import Father from './components/container/father';
-import OptionalRender from './components/pure/optionalRender.jsx'
-import { Formik } from 'formik';
-import LoginFormik from './components/pure/forms/loginFormik';
 import RegisterFormik from './components/pure/forms/registerFormik';
  
 function App() {

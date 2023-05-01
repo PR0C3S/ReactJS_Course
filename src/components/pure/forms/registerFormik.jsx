@@ -6,8 +6,9 @@ import { User } from '../../../models/user.class';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { ROLES } from '../../../models/roles.enum';
+import { useNavigate } from 'react-router-dom';
 
-const RegisterFormik = () => {
+const RegisterFormik = ( { forward }) => {
 
     let user = new User();
 
@@ -45,13 +46,16 @@ const RegisterFormik = () => {
         }
     )
 
-    const submit = (values) => {
-        alert('Register user')
+    
+
+    const navigate = useNavigate();
+    function GoTo(path)
+    {
+        navigate(path);
     }
 
     return (
         <div>
-            <h4>Register Formik</h4>
             <Formik
                 initialValues = {initialValues}
                 // *** Yup Validation Schema ***
@@ -60,6 +64,7 @@ const RegisterFormik = () => {
                 onSubmit={async (values) => {
                     await new Promise((r) => setTimeout(r, 1000));
                     alert(JSON.stringify(values, null, 2))
+                    GoTo('/home');
                 }}
             >
 
@@ -70,6 +75,7 @@ const RegisterFormik = () => {
                     handleChange,
                     handleBlur }) => (
                         <Form>
+                            <div className='row'>
                             <label htmlFor="username">Username</label>
                             <Field id="username" type="text" name="username" placeholder="Your username" />
                             
@@ -80,7 +86,9 @@ const RegisterFormik = () => {
                                     <ErrorMessage name="username" component='div'></ErrorMessage>
                                 )
                             }
+                            </div>
 
+                            <div className='row'>
                             <label htmlFor="email">Email</label>
                             <Field id="email" type="email" name="email" placeholder="example@email.com" />
 
@@ -91,7 +99,9 @@ const RegisterFormik = () => {
                                     <ErrorMessage name="email" component='div'></ErrorMessage>
                                 )
                             }
+                            </div>
 
+                            <div className='row'>
                             <label htmlFor="password">Password</label>
                             <Field
                                 id="password"
@@ -106,8 +116,10 @@ const RegisterFormik = () => {
                                     <ErrorMessage name="password" component='div'></ErrorMessage>
                                 )
                             }
+                            </div>
 
-                            <label htmlFor="confirm">Password</label>
+                            <div className='row'>
+                            <label htmlFor="confirm">Confirm Password</label>
                             <Field
                                 id="confirm"
                                 name="confirm"
@@ -121,10 +133,13 @@ const RegisterFormik = () => {
                                     <ErrorMessage name="confirm" component='div'></ErrorMessage>
                                 )
                             }
+                            </div>
 
-                            <button type="submit">Register Account</button>
+                            <div className='row mt-2'>
+                            <button className='btn btn-secondary col-5' type='button' onClick={ () => GoTo('/login') }>Cancell</button>
+                            <button className='btn btn-primary col-5' type="submit">Register Account</button>
                             {isSubmitting ? (<p>Sending your credentials...</p>): null}
-
+                            </div>
                         </Form>
                     )
             }

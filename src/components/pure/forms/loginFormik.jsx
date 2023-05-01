@@ -21,6 +21,11 @@ const LoginFormik = () => {
 
   const navigate = useNavigate();
 
+  function GoTo(path)
+  {
+      navigate(path);
+  }
+
   return (
     <div>
       <Formik
@@ -34,7 +39,7 @@ const LoginFormik = () => {
           alert(JSON.stringify(values, null, 2));
           // We save the data in the localstorage
           await localStorage.setItem('credentials',values);
-          navigate('/profile');
+          GoTo('/profile');
         }}
       >
         {/* We obtain props from Formik */}
@@ -45,6 +50,8 @@ const LoginFormik = () => {
                 isSubmitting,
                 handleChange,
                 handleBlur }) => (<Form>
+
+                        <div className='row'> 
                         <label htmlFor="email">Email</label>
                         <Field id="email" type="text" name="email" placeholder="example@email.com"/>
                         
@@ -54,7 +61,9 @@ const LoginFormik = () => {
                             </div>*/
                         <ErrorMessage component="div" name="email"/>
                         )}
+                        </div>
 
+                        <div className='row'> 
                         <label htmlFor="password">Password</label>
                         <Field id="password" type="password" name="password"  placeholder="password"/>
                         {errors.password && touched.password && (
@@ -65,9 +74,15 @@ const LoginFormik = () => {
 
                             <ErrorMessage component="div" name="password"/>
                         )}
+                        </div>
 
-                        <button type="submit">Login</button>
+                        <div className='row mt-2'> 
+                        <button type="submit" className="btn btn-outline-primary">Login</button>
                         { isSubmitting ? <p>Login your credentials...</p> : null}
+                        </div>
+                        <div className='row mt-2'> 
+                        <button type="button" className="btn btn-outline-secondary" onClick={() => GoTo("/register")}>Register an account</button>
+                        </div>
                     </Form>)}
         
       </Formik>

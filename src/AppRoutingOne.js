@@ -9,6 +9,7 @@ import TaskDetailPage from './pages/tasks/TaskDetailPage';
 import LoginPage from './pages/auth/LoginPage';
 import { useEffect } from 'react';
 import StatePage from './pages/home/StatePage';
+import RegisterPage from './pages/auth/RegisterPage';
 
 function AppRoutingOne() {
 
@@ -48,6 +49,7 @@ function AppRoutingOne() {
           <Route exact path='/' element={ <HomePage></HomePage>} />
           <Route exact path='/online-state' element={<StatePage></StatePage>} />
           <Route path="/login" element={logged ? <Navigate to="/" /> : <LoginPage/> }/>
+          <Route path="/register" element={logged ? <Navigate to="/" /> : <RegisterPage/> }/>
           <Route path='/about' element={ <AboutPage></AboutPage>} />
           <Route path='/faqs' element={ <AboutPage></AboutPage>} />
           <Route path="/profile" element={logged ? <HomePage/> : <Navigate to="/login" />}/>
