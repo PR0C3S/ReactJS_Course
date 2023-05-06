@@ -13,6 +13,8 @@ import OptionalRender from './components/pure/optionalRender.jsx'
 import { Formik } from 'formik';
 import LoginFormik from './components/pure/forms/loginFormik';
 import RegisterFormik from './components/pure/forms/registerFormik';
+import AsyncExample from './components/pure/AsyncExample';
+import ObservableExample from './components/pure/ObservableExample';
  
 function App() {
   return (
@@ -49,10 +51,12 @@ function App() {
       <TaskListComponent></TaskListComponent>
 
       <LoginFormik></LoginFormik>
+      <RegisterFormik></RegisterFormik>
+      <AsyncExample></AsyncExample>
 
       */}
-      <RegisterFormik></RegisterFormik>
       
+      <ObservableExample></ObservableExample>
 
 
     </div>
