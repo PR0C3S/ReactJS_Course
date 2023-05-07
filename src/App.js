@@ -15,6 +15,8 @@ import LoginFormik from './components/pure/forms/loginFormik';
 import RegisterFormik from './components/pure/forms/registerFormik';
 import AsyncExample from './components/pure/AsyncExample';
 import ObservableExample from './components/pure/ObservableExample';
+import FetchExample from './components/pure/FetchExample';
+import AxiosExample from './components/pure/AxiosExample';
  
 function App() {
   return (
@@ -53,12 +55,12 @@ function App() {
       <LoginFormik></LoginFormik>
       <RegisterFormik></RegisterFormik>
       <AsyncExample></AsyncExample>
+      <ObservableExample></ObservableExample>
+     <FetchExample></FetchExample>
 
       */}
-      
-      <ObservableExample></ObservableExample>
-
-
+      <AxiosExample></AxiosExample>
+     
     </div>
   );
 }
