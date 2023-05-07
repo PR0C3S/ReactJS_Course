@@ -1,9 +1,9 @@
 import APIRequest from "../utils/config/axios.config";
 
-export function getRandomUser(){
-    return APIRequest.get('/', {
+export function getRandomJoke(){
+    return APIRequest.get('/jokes/random', {
         validateStatus: function (status){
             return status < 500;
         }
-    }); // https://randomuser.me/api/
+    }); 
 }
